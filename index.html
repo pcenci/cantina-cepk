@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cantina CEPK - PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ea580c" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🍔 Cantina CEPK</h1>
+      <button id="btn-toggle-role" class="btn-outline">Mudar para: Cantina</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- VISÃO DO ALUNO -->
+    <section id="view-aluno">
+      <div class="filters">
+        <button class="filter-btn active" data-cat="Todos">Todos</button>
+        <button class="filter-btn" data-cat="Salgados">Salgados</button>
+        <button class="filter-btn" data-cat="Bebidas">Bebidas</button>
+        <button class="filter-btn" data-cat="Doces">Doces</button>
+      </div>
+
+      <div id="menu-list" class="grid"></div>
+
+      <div class="card cart-box">
+        <h2>🛒 Seu Pedido</h2>
+        <ul id="cart-items"></ul>
+        <p class="total">Total: R$ <span id="cart-total">0,00</span></p>
+        <input type="text" id="student-name" placeholder="Seu nome e turma (ex: João - 2ºB)" />
+        <button id="btn-checkout" class="btn-primary">Finalizar Reserva</button>
+      </div>
+
+      <div class="card">
+        <h2>📋 Meus Pedidos</h2>
+        <div id="student-orders"></div>
+      </div>
+    </section>
+
+    <!-- VISÃO DA CANTINA -->
+    <section id="view-cantina" class="hidden">
+      <div class="card">
+        <h2>➕ Cadastrar Novo Item</h2>
+        <form id="form-add-item">
+          <input type="text" id="item-name" placeholder="Nome do produto" required />
+          <select id="item-cat">
+            <option value="Salgados">Salgados</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Doces">Doces</option>
+          </select>
+          <input type="number" id="item-price" step="0.50" placeholder="Preço (ex: 6.50)" required />
+          <button type="submit" class="btn-primary">Adicionar ao Cardápio</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>📦 Gerenciar Cardápio</h2>
+        <div id="admin-menu-list"></div>
+      </div>
+
+      <div class="card">
+        <h2>🔔 Fila de Pedidos</h2>
+        <div id="admin-orders-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
